@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;700&display=swap" rel="stylesheet">
+  <title>Technical Documentation</title>
+  <style>
+    body {
+      display: flex;
+      font-family: 'Inknut Antiqua', serif;
+      margin: 0;
+      background: linear-gradient(to bottom, #F8BB8F, #813030);
+      max-width: 1500px;
+      line-height: 25px;
+      
+    }
+
+#navbar {
+      position: fixed;
+      width: 213px;
+      height: 100vh;
+      overflow-y: auto;
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+#navbar header {
+      font-size: 1.3em;
+      margin-bottom: 1em;
+      font-family: 'Inknut Antiqua', serif;
+    }
+
+.nav-link {
+      display: block;
+      color: white;
+      text-decoration: none;
+      margin-bottom: 10px;
+      font-family: 'Inknut Antiqua', serif;
+      font-size: .8em;
+    }
+
+#main-doc {
+      margin-left: 220px;
+      padding: 20px;
+    }
+
+.main-section {
+      margin-bottom: 1.5em;
+      background-color: #E7C09D;
+      border-radius: 10px;
+      border: 5px solid #7B6857;
+      padding: 10px;
+    }
+
+    @media (max-width: 768px) {
+#navbar {
+        position: relative;
+        width: 100%;
+        height: auto;
+      }
+
+#main-doc {
+        margin-left: 0;
+      }
+
+    }
+
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <header>Baldurs Gate Magic System</header>
+    <a href="#Introduction_to_Magic_in_Baldur's_Gate_3" class="nav-link">Introduction to Magic in Baldur's Gate 3</a>
+    <a href="#Spell_Schools" class="nav-link">Spell Schools</a>
+    <a href="#Spell_Casting_Mechanics" class="nav-link">Spell Casting Mechanics</a>
+    <a href="#Cantrips" class="nav-link">Cantrips</a>
+    <a href="#Leveled_Spells" class="nav-link">Leveled Spells</a>
+    <a href="#Spell_Slots_and_Rest" class="nav-link">Spell Slots and Rest</a>
+    <a href="#Concentration" class="nav-link">Concentration</a>
+    <a href="#Magic_Items" class="nav-link">Magic Items</a>
+    <a href="#Legendary_Spells" class="nav-link">Legendary Spells</a>
+    <a href="#Arcane_vs_Divine" class="nav-link">Arcane vs Divine</a>
+    <a href="#Spellcasting_Classes" class="nav-link">Spellcasting Classes</a>
+    <a href="#Magical_Damage_Types" class="nav-link">Magical Damage Types</a>
+    <a href="#Magical_Status_Effects" class="nav-link">Magical Status Effects</a>
+    <a href="#Advanced_Spell_Interactions" class="nav-link">Advanced Spell Interactions</a>
+  </nav>
+  
+  <main id="main-doc">
+    <section id="Introduction_to_Magic_in_Baldur's_Gate_3" class="main-section">
+      <header><h3>Introduction to Magic in Baldur's Gate 3</h3></header>
+      <p>Magic is a fundamental part of the world of Baldur's Gate 3. Arcane and divine spellcasters wield incredible power, shaping the course of battles and altering the very fabric of reality. From the cantrips of novice mages to the legendary spells of ancient sorcerers, magic is a force to be reckoned with in the Forgotten Realms. It is divided into 3 classes that can by default use it:</p>
+      <p>Here's a basic spell casting command:</p>
+      <code>cast('fireball', target_location)</code>
+      <ul>
+        <li>Wizards</li>
+        <li>Warlocks</li>
+        <li>Sorcerers</li>
+      </ul>
+    </section>
+
+    <section id="Spell_Schools" class="main-section">
+      <header><h3>Spell Schools</h3></header>
+      <p>Spells in Baldur's Gate 3 are categorized into eight distinct schools of magic:</p>
+      <ul>
+        <li>Abjuration</li>
+        <li>Conjuration</li>
+        <li>Divination</li>
+        <li>Enchantment</li>
+        <li>Evocation</li>
+        <li>Illusion</li>
+        <li>Necromancy</li>
+        <li>Transmutation</li>
+      </ul>
+      <code>school = spell.get_school()</code>
+      <p>Each school focuses on a specific type of magical effect, granting spellcasters unique capabilities and specialized strategies.</p>
+    </section>
+
+    <section id="Spell_Casting_Mechanics" class="main-section">
+      <header><h3>Spell Casting Mechanics</h3></header>
+      <p>To cast a spell in Baldur's Gate 3, a spellcaster must:</p>
+      <ul>
+        <li>Have the spell prepared or known</li>
+        <li>Have available spell slots of the appropriate level</li>
+        <li>Spend the required action (action, bonus action, or reaction)</li>
+        <li>Succeed on any required ability checks or saving throws</li>
+      </ul>
+      <p>The specific mechanics vary depending on the spellcasting class and the spell being cast.</p>
+      <code>if hasSpellSlot() && isSpellKnown():</code>
+    </section>
+
+    <section id="Cantrips" class="main-section">
+      <header><h3>Cantrips</h3></header>
+      <p>Cantrips are minor spells that spellcasters can cast at will, without expending any spell slots. These magical effects are often used for utility, defense, or small-scale damage. Some examples of cantrips in Baldur's Gate 3 include:</p>
+      <ul>
+        <li>Mage Hand</li>
+        <li>Prestidigitation</li>
+        <li>Light</li>
+        <li>Guidance</li>
+        <li>Toll the Dead</li>
+      </ul>
+      <code>cantrip.cast() // No spell slot required</code>
+    </section>
+
+    <section id="Leveled_Spells" class="main-section">
+      <header><h3>Leveled Spells</h3></header>
+      <p>In addition to cantrips, spellcasters in Baldur's Gate 3 have access to a wide array of leveled spells. These more powerful magical effects require the expenditure of spell slots and are categorized by spell level, ranging from 1st to 9th. Some examples of leveled spells include:</p>
+      <ul>
+        <li>Fireball (3rd level)</li>
+        <li>Invisibility (2nd level)</li>
+        <li>Revivify (3rd level)</li>
+        <li>Counterspell (3rd level)</li>
+        <li>Polymorph (4th level)</li>
+      </ul>
+      <code>spell.cast(spell_slot_level)</code>
+    </section>
+    
+    <section id="Spell_Slots_and_Rest" class="main-section">
+      <header><h3>Spell Slots and Rest</h3></header>
+      <p>Spellcasters in Baldur's Gate 3 have a limited number of spell slots available, which they use to cast leveled spells. These spell slots are replenished through a short or long rest, depending on the spellcasting class.</p>
+      <ul>
+        <li>Short Rest: Regains all expended spell slots of 1st level and 2nd level.</li>
+        <li>Long Rest: Regains all expended spell slots.</li>
+      </ul>
+    </section>
+    
+    <section id="Concentration" class="main-section">
+      <header><h3>Concentration</h3></header>
+      <p>Many spells in Baldur's Gate 3 require the caster to maintain concentration in order to sustain their magical effects. If the caster takes damage or is incapacitated, they must make a Constitution saving throw or lose concentration on the spell.</p>
+      <ul>
+        <li>Only one concentration spell can be active at a time</li>
+        <li>Certain effects can cause a loss of concentration</li>
+        <li>Losing concentration ends the spell effect immediately</li>
+      </ul>
+    </section>
+    
+    <section id="Magic_Items" class="main-section">
+      <header><h3>Magic Items</h3></header>
+      <p>The world of Baldur's Gate 3 is rich with magical items that grant powerful abilities to the user. These items come in various forms, such as weapons, armor, and accessories. Some examples of magical items include:</p>
+      <ul>
+        <li>Cloak of Protection</li>
+        <li>Wand of Magic Missiles</li>
+        <li>Boots of Speed</li>
+      </ul>
+      <code>magicItem.activate() // Grants unique abilities</code>
+    </section>
+
+    <section id="Legendary_Spells" class="main-section">
+      <header><h3>Legendary Spells</h3></header>
+      <p>Legendary spells are incredibly powerful and rare spells that only a few spellcasters in Baldur's Gate 3 can access. These spells often have massive effects on the battlefield or the story's narrative. Some examples of legendary spells include:</p>
+      <ul>
+        <li>Time Stop</li>
+        <li>Wish</li>
+        <li>True Resurrection</li>
+      </ul>
+      <code>legendarySpell.cast() // Unleashes extraordinary power</code>
+    </section>
+
+    <section id="Arcane_vs_Divine" class="main-section">
+      <header><h3>Arcane Vs Divine</h3></header>
+      <p>There are two main types of spellcasting in Baldur's Gate 3: arcane and divine magic. Arcane magic is typically associated with wizards, sorcerers, and warlocks, while divine magic is often wielded by clerics and paladins. The key differences include:</p>
+      <ul>
+        <li>Arcane spells are learned and manipulated by the caster</li>
+        <li>Divine spells are granted by deities or higher powers</li>
+      </ul>
+      <code>arcaneSpell.cast()</code>
+    </section>
+
+    <section id="Spellcasting_Classes" class="main-section">
+      <header><h3>Spellcasting Classes</h3></header>
+      <p>Several classes in Baldur's Gate 3 are capable of casting spells. Some of the most prominent spellcasting classes include:</p>
+      <ul>
+        <li>Wizard</li>
+        <li>Sorcerer</li>
+        <li>Cleric</li>
+        <li>Warlock</li>
+      </ul>
+    </section>
+
+    <section id="Magical_Damage_Types" class="main-section">
+      <header><h3>Magical Damage Types</h3></header>
+      <p>Magical damage can be categorized into various types, and different creatures or enemies may have resistances or vulnerabilities to these types. Some examples include:</p>
+      <ul>
+        <li>Fire damage</li>
+        <li>Cold damage</li>
+        <li>Lightning damage</li>
+        <li>Force damage</li>
+      </ul>
+    </section>
+
+    <section id="Magical_Status_Effects" class="main-section">
+      <header><h3>Magical Status Effects</h3></header>
+      <p>Certain spells in Baldur's Gate 3 can cause magical status effects that alter a character's abilities or actions. Examples of magical status effects include:</p>
+      <ul>
+        <li>Blinded</li>
+        <li>Paralyzed</li>
+        <li>Frightened</li>
+        <li>Stunned</li>
+      </ul>
+    </section>
+
+    <section id="Advanced_Spell_Interactions" class="main-section">
+      <header><h3>Advanced Spell Interactions</h3></header>
+      <p>In Baldur's Gate 3, many spells interact with one another in complex and dynamic ways. For example:</p>
+      <ul>
+        <li>Combining Fireball with a Wind spell can cause a larger blast</li>
+        <li>Using a spell that grants invisibility while in darkness can make a character completely undetectable</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
